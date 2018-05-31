@@ -28,7 +28,7 @@
 
 ## Data Management Architecture
 
-![](images/Scrobble Mining Architecture.png)
+![](images/scrobble_mining_achitecture.png)
 
 ## Sourcing/ Transforming the data
 
@@ -53,7 +53,7 @@
 * Purpose of this exercise is to match the Million Song Dataset with other music portals and use them to enrich the current data
 
 
-![](images/MongoDB - Schema.png)
+![](images/mongodb_schema.png)
 
 # Data Transformation
 ![](images/msd_schema.png)
