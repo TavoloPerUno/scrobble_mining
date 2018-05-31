@@ -105,7 +105,6 @@ CREATE TABLE `tag` (
   UNIQUE KEY `name_UNIQUE` (`tag_name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
-  
 CREATE TABLE `track_tag` (
   `track_tag_id` int(11) NOT NULL AUTO_INCREMENT,
   `track_db_id` int(11) NOT NULL,
@@ -408,13 +407,13 @@ create function check_track_in_db(track_name_in varchar(512), artist_name_in tex
     return found_track_db_id is not null;
   end;$$
 DELIMITER ;
-
+use lastfm;
 DELIMITER $$
 create function check_tag_in_db(tag_name_in varchar(512))
   returns int(11)
   begin
     declare tag_id_out int;
-    SELECT tag_id FROM tag WHERE lower(tag_name) like lower(tag_name_in) into tag_id_out;
+    SELECT tag_id FROM tag WHERE TRIM(lower(tag_name)) like TRIM(lower(tag_name_in)) LIMIT 1 into tag_id_out;
     return tag_id_out;
   end;$$
 DELIMITER ;

@@ -62,7 +62,7 @@ def process_tags(tags):
         if 'toptags_tag' in flattened_tags:
             cursor = mysql.cursor()
             for tag in flattened_tags['toptags_tag']:
-                if tag['name'].strip() != '':
+                if tag['name'].strip() != '' and 'Axwell' not in  tag['name'].strip():
                     tag_id = check_tag_in_db(tag['name'].strip()[0:255])
                     if tag_id is None:
 
